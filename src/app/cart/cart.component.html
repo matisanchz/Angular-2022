@@ -1,0 +1,21 @@
+<div class="d-block p-2">
+  <div class="d-flex p-2">
+    <h3>Carrito</h3>
+    <img class="carrito ms-1" src="assets/img/cart.png">
+  </div>
+  <h4>Para aceptar compra:</h4>
+  <div class="d-flex p-2">
+    <input type="email" placeholder="Ingrese su mail" id="mail" name="mail" required>
+    <button class="btn btn-info ms-2" (click)="buy()">Aceptar</button>
+</div>
+</div>
+
+<ol class="list-group list-group-numbered">
+    <li *ngFor="let book of (cartList$ | async)" class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">{{book.titulo}}</div>
+        {{book.autor}}
+      </div>
+      <span class="badge bg-primary rounded-pill">{{book.quantity}}</span>
+    </li>
+</ol>

@@ -1,0 +1,9 @@
+<h3 class="mt-2">Favoritos</h3>
+
+<ul>
+    <li *ngFor="let book of books" (click)="addToFavourite(book)">
+        <div *ngIf="book.favorito, else other_content"><img src="assets/img/fav.png" alt=""></div>
+        <ng-template #other_content><img src="assets/img/emptyfav.png" alt=""></ng-template>
+        
+    </li>
+</ul>

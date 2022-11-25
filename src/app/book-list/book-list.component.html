@@ -1,0 +1,30 @@
+<h1>Catalogo de libros:</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Año</th>
+            <th>Género</th>
+            <th>Compra</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td><img width="90" class="img thumbnail" [src]="book.imagen" [alt]="book.titulo"></td>
+            <td>{{book.titulo}}</td>
+            <td>{{book.autor}}</td>
+            <td>{{book.anio}}</td>
+            <td>{{book.genero}}</td>
+            <td>
+                <app-input-integer class="ms-2" [(quantity)]="book.quantity" [max]="book.stock" (maxReached)="maxReached($event)"></app-input-integer>
+                <div>
+                    <button class="btn btn-outline-primary mt-2" (click)="addToCart(book)">Comprar</button>
+                    <button class="btn btn-outline-success mt-2 ms-2" (click)="removeToCart(book)">Quitar</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
