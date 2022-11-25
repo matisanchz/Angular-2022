@@ -1,9 +1,21 @@
-.carrito{
-    height: 45px;
-    width: 45px;
+.carrito {
+  height: 45px;
+  width: 45px;
 }
 
-.imagen{
-    height: 10px;
-    width: 10px;
+.imagen {
+  height: 10px;
+  width: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  input {
+    width: 120px;
+  }
+  div {
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+    margin-left: 100px;
+  }
 }
