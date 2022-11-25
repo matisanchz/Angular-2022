@@ -2,8 +2,8 @@
 
 <ul>
     <li *ngFor="let book of books" (click)="addToFavourite(book)">
-        <div *ngIf="book.favorito, else other_content"><img src="assets/img/fav.png" alt=""></div>
-        <ng-template #other_content><img src="assets/img/emptyfav.png" alt=""></ng-template>
+        <div *ngIf="book.favorito, else other_content"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt=""></div>
+        <ng-template #other_content><img src="https://cdn-icons-png.flaticon.com/512/1828/1828970.png" alt=""></ng-template>
         
     </li>
 </ul>
