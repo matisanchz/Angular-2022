@@ -7,7 +7,11 @@
   <div class="d-flex p-2">
     <input type="email" placeholder="Ingrese su mail" id="mail" name="mail" required>
     <button class="btn btn-info ms-2" (click)="buy()">Aceptar</button>
-</div>
+  </div>
+  <div class="d-flex p-2">
+    <button class="btn btn-info ms-2" (click)="calculate()">Calcular</button>
+    <span class="badge bg-primary rounded-pill" *ngIf="total>0">Total: {{total}}</span>
+  </div>
 </div>
 
 <ol class="list-group list-group-numbered">
@@ -17,5 +21,6 @@
         {{book.autor}}
       </div>
       <span class="badge bg-primary rounded-pill">{{book.quantity}}</span>
+      <span class="badge bg-primary rounded-pill ms-1">Subtotal: {{book.quantity*book.precio}}</span>
     </li>
 </ol>

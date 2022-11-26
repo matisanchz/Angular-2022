@@ -3,7 +3,7 @@ import {BehaviorSubject} from "rxjs";
 import { Book } from './book-list/book';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookCartService {
 

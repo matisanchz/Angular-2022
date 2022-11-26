@@ -4,9 +4,9 @@
     <tr>
       <th>Portada</th>
       <th>Título</th>
-      <th>Autor</th>
+      <th id="respons">Autor</th>
       <th id="respons">Año</th>
-      <th id="respons">Género</th>
+      <th>Precio</th>
       <th>Compra</th>
     </tr>
   </thead>
@@ -21,9 +21,9 @@
         />
       </td>
       <td>{{ book.titulo }}</td>
-      <td>{{ book.autor }}</td>
+      <td id="respons">{{ book.autor }}</td>
       <td id="respons">{{ book.anio }}</td>
-      <td id="respons">{{ book.genero }}</td>
+      <td>${{ book.precio }}.00</td>
       <td>
         <app-input-integer
           class="ms-2"

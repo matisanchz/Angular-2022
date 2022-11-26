@@ -2,17 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { BookCartService } from '../book-cart.service';
 import { Book } from '../book-list/book';
 import {Observable} from "rxjs";
-import { BookListComponent } from '../book-list/book-list.component';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss'],
-  providers: [BookListComponent]
+  styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
 
   private _cartList: Book[] = [];
+  public total:number=0;
   cartList$: Observable<Book[]>; 
   constructor(private cart: BookCartService) {
     this.cartList$ = cart.cartList.asObservable();
@@ -20,6 +19,11 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  calculate(){
+    this.total = 0;
+    this._cartList.forEach((book)=>this.total+=book.quantity*book.precio);
   }
 
   buy(){

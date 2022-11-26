@@ -3,7 +3,7 @@ export interface Book{
     "titulo": string,
     "autor": string,
     "anio": number,
-    "genero": string,
+    "precio": number,
     "imagen": string,
     "stock": number,
     "quantity": number,
