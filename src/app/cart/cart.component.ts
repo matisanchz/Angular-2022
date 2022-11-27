@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BookCartService } from '../book-cart.service';
+import { BookTotalService} from '../book-total.service';
 import { Book } from '../book-list/book';
-import {Observable} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-cart',
@@ -10,12 +11,16 @@ import {Observable} from "rxjs";
 })
 export class CartComponent implements OnInit {
 
+  clickEventSubscription: Subscription;
   private _cartList: Book[] = [];
   public total:number=0;
   cartList$: Observable<Book[]>; 
-  constructor(private cart: BookCartService) {
+  constructor(private cart: BookCartService,
+              private totalService: BookTotalService) {
     this.cartList$ = cart.cartList.asObservable();
     this._cartList = cart.getCartList();
+    this.clickEventSubscription = this.totalService.getClickEvent().subscribe(()=>{
+      this.calculate()});
   }
 
   ngOnInit(): void {
